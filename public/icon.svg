@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <!-- Background -->
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="#F5F7FB"/>
+  <rect x="8" y="8" width="112" height="112" rx="24" stroke="#E6EAF2"/>
+
+  <!-- Chrome-like mark (simplified) -->
+  <g transform="translate(16,18)">
+    <circle cx="36" cy="38" r="26" fill="#FFFFFF" stroke="#E6EAF2"/>
+    <!-- red / yellow / green wedges -->
+    <path d="M36 12 A26 26 0 0 1 61.2 29 L45.4 29 A12 12 0 0 0 36 24 Z" fill="#EA4335"/>
+    <path d="M61.2 29 A26 26 0 0 1 43.5 63.1 L35.6 49.2 A12 12 0 0 0 45.4 29 Z" fill="#FBBC05"/>
+    <path d="M43.5 63.1 A26 26 0 0 1 10.8 29 L26.6 29 A12 12 0 0 0 35.6 49.2 Z" fill="#34A853"/>
+    <!-- center -->
+    <circle cx="36" cy="38" r="12" fill="#4285F4" stroke="#FFFFFF" stroke-width="3"/>
+  </g>
+
+  <!-- Folder -->
+  <g transform="translate(40,54)">
+    <path d="M10 14 C10 9.6 13.6 6 18 6 H38 L46 12 H74 C78.4 12 82 15.6 82 20 V56 C82 60.4 78.4 64 74 64 H18 C13.6 64 10 60.4 10 56 Z"
+          fill="#F4B400"/>
+    <path d="M10 22 H82 V56 C82 60.4 78.4 64 74 64 H18 C13.6 64 10 60.4 10 56 Z"
+          fill="#F9C74F"/>
+    <path d="M10 22 H82" stroke="#E0A800" stroke-opacity="0.6"/>
+    <!-- Bookmark ribbon -->
+    <path d="M20 18 C20 16.3 21.3 15 23 15 H31 C32.7 15 34 16.3 34 18 V46 L27 42 L20 46 Z"
+          fill="#4285F4" opacity="0.95"/>
+  </g>
+
+  <!-- Pinned tabs peeking out -->
+  <g transform="translate(56,44)">
+    <!-- tab 1 -->
+    <path d="M8 22 C8 18.7 10.7 16 14 16 H46 C49.3 16 52 18.7 52 22 V48 C52 51.3 49.3 54 46 54 H14 C10.7 54 8 51.3 8 48 Z"
+          fill="#FFFFFF" stroke="#E6EAF2"/>
+    <rect x="14" y="22" width="26" height="6" rx="3" fill="#EAF0FF"/>
+    <circle cx="44" cy="24.8" r="1.8" fill="#34A853"/>
+    <circle cx="48" cy="24.8" r="1.8" fill="#FBBC05"/>
+    <circle cx="52" cy="24.8" r="1.8" fill="#EA4335" opacity="0.9" transform="translate(-4,0)"/>
+
+    <!-- pin -->
+    <g transform="translate(20,10)">
+      <circle cx="0" cy="0" r="5" fill="#34A853"/>
+      <path d="M0 4 L-2 18 L2 18 Z" fill="#2E7D32"/>
+    </g>
+
+    <!-- tab 2 (behind) -->
+    <path d="M-6 28 C-6 24.7 -3.3 22 0 22 H28 C31.3 22 34 24.7 34 28 V50 C34 53.3 31.3 56 28 56 H0 C-3.3 56 -6 53.3 -6 50 Z"
+          fill="#FFFFFF" stroke="#E6EAF2" opacity="0.95"/>
+    <rect x="-1" y="30" width="20" height="6" rx="3" fill="#EEF2F7"/>
+
+    <!-- pin 2 -->
+    <g transform="translate(6,18)" opacity="0.95">
+      <circle cx="0" cy="0" r="5" fill="#4285F4"/>
+      <path d="M0 4 L-2 18 L2 18 Z" fill="#2B5FB8"/>
+    </g>
+
+    <!-- tab 3 (behind more) -->
+    <path d="M-18 34 C-18 30.7 -15.3 28 -12 28 H10 C13.3 28 16 30.7 16 34 V52 C16 55.3 13.3 58 10 58 H-12 C-15.3 58 -18 55.3 -18 52 Z"
+          fill="#FFFFFF" stroke="#E6EAF2" opacity="0.9"/>
+    <rect x="-13" y="36" width="16" height="6" rx="3" fill="#F1F3F7"/>
+
+    <!-- pin 3 -->
+    <g transform="translate(-8,24)" opacity="0.9">
+      <circle cx="0" cy="0" r="5" fill="#EA4335"/>
+      <path d="M0 4 L-2 18 L2 18 Z" fill="#B3261E"/>
+    </g>
+  </g>
+
+  <!-- subtle sparkle -->
+  <g opacity="0.35">
+    <path d="M104 36 L106 40 L110 42 L106 44 L104 48 L102 44 L98 42 L102 40 Z" fill="#FBBC05"/>
+    <path d="M22 96 L23 98 L25 99 L23 100 L22 102 L21 100 L19 99 L21 98 Z" fill="#34A853"/>
+  </g>
+</svg>
