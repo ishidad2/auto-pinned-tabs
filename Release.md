@@ -138,14 +138,14 @@ git push origin v1.0.1
 
 ### パッケージングエラーの場合
 
-`.output/chrome-mv3`または`.output/firefox-mv3`ディレクトリが正しく生成されているか確認します。
+`.output/chrome-mv3`または`.output/firefox-mv2`ディレクトリが正しく生成されているか確認します。
 
 ```bash
 npm run build
 ls -la .output/chrome-mv3
 
 npm run build:firefox
-ls -la .output/firefox-mv3
+ls -la .output/firefox-mv2
 ```
 
 ## バージョニング規則
