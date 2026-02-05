@@ -1,0 +1,54 @@
+changelog:
+  categories:
+    - title: 🚀 新機能
+      labels:
+        - enhancement
+        - feature
+    - title: 🐛 バグ修正
+      labels:
+        - bug
+        - fix
+    - title: 📚 ドキュメント
+      labels:
+        - documentation
+        - docs
+    - title: 🔧 リファクタリング
+      labels:
+        - refactor
+        - refactoring
+    - title: 🎨 UI/UX改善
+      labels:
+        - ui
+        - ux
+        - design
+    - title: ⚡ パフォーマンス改善
+      labels:
+        - performance
+        - perf
+    - title: 🔒 セキュリティ
+      labels:
+        - security
+    - title: 🧪 テスト
+      labels:
+        - test
+        - testing
+    - title: 🔨 開発者向け改善
+      labels:
+        - chore
+        - ci
+        - build
+    - title: ⛔ 対応しない
+      labels:
+        - wontfix
+    - title: 🚷 無効
+      labels:
+        - invalid
+    - title: 🚫 重複
+      labels:
+        - duplicate
+    - title: その他の変更
+      labels:
+        - "*"
+  exclude:
+    labels:
+      - skip-changelog
