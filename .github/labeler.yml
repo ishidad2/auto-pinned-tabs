@@ -1,0 +1,33 @@
+# PRに自動的にラベルを付与する設定
+# .github/workflows/labeler.ymlと組み合わせて使用
+
+enhancement:
+  - head-branch: ['^feature/', '^feat/']
+  - title: ['^feat:', '^feature:']
+
+bug:
+  - head-branch: ['^fix/', '^bugfix/', '^hotfix/']
+  - title: ['^fix:', '^bugfix:']
+
+documentation:
+  - head-branch: ['^docs/']
+  - title: ['^docs:']
+  - any: ['**/*.md', '!.github/**']
+
+refactor:
+  - head-branch: ['^refactor/']
+  - title: ['^refactor:']
+
+ui:
+  - any: ['**/*.css', '**/popup/**', '**/options/**']
+  - title: ['^ui:', '^ux:']
+
+chore:
+  - head-branch: ['^chore/']
+  - title: ['^chore:', '^ci:']
+  - any: ['.github/**', 'scripts/**']
+
+test:
+  - head-branch: ['^test/']
+  - title: ['^test:']
+  - any: ['**/*.test.ts', '**/*.spec.ts']
