@@ -2,7 +2,7 @@
   "name": "wxt-starter",
   "description": "Chromeの起動時に、指定したブックマークフォルダのタブを自動的に固定タブとして開きます。毎朝同じタブを手動で開く手間を省き、すぐに作業を開始できます。",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "wxt",
