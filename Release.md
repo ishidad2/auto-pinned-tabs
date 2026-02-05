@@ -30,7 +30,7 @@ npm run release:major  # 破壊的変更 (1.0.0 → 2.0.0)
 2. 未コミットの変更の確認
 3. リモートとの同期確認
 4. TypeScriptのコンパイルチェック
-5. Chrome版・Firefox版のビルドテスト
+5. 拡張機能のビルドテスト
 6. バージョンの更新（package.json）
 7. 変更のコミット
 8. バージョンタグの作成
@@ -81,39 +81,29 @@ git push origin v1.0.1
 ワークフローは以下の処理を実行します：
 
 1. 依存関係のインストール（`npm ci`）
-2. Chrome版のビルド（`npm run build`）
-3. Firefox版のビルド（`npm run build:firefox`）
-4. Chrome版のパッケージング（`auto-pinned-tabs-chrome-v1.0.1.zip`）
-5. Firefox版のパッケージング（`auto-pinned-tabs-firefox-v1.0.1.zip`）
-6. GitHubリリースの作成（リリースノート自動生成）
+2. 拡張機能のビルド（`npm run build`）
+3. zipファイルのパッケージング（`auto-pinned-tabs-v1.0.1.zip`）
+4. GitHubリリースの作成（リリースノート自動生成）
 
 ### 5. GitHubリリースの確認
 
 1. GitHubリポジトリの[Releases](https://github.com/ishidad2/auto-pinned-tabs/releases)ページにアクセス
 2. 新しいリリースが作成されていることを確認
-3. Chrome版とFirefox版のzipファイルが添付されていることを確認
+3. zipファイルが添付されていることを確認
 4. 自動生成されたリリースノートを確認し、必要に応じて編集
 
 ### 6. Chrome Web Storeへの公開
 
 1. [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole)にログイン
 2. Auto Pinned Tabsの拡張機能を選択
-3. 「パッケージ」タブから`auto-pinned-tabs-chrome-v1.0.1.zip`をアップロード
-4. 変更内容を記載し、審査に提出
-
-### 7. Firefox Add-onsへの公開
-
-1. [Firefox Add-on Developer Hub](https://addons.mozilla.org/developers/)にログイン
-2. Auto Pinned Tabsのアドオンを選択
-3. 「新しいバージョンをアップロード」から`auto-pinned-tabs-firefox-v1.0.1.zip`をアップロード
+3. 「パッケージ」タブから`auto-pinned-tabs-v1.0.1.zip`をアップロード
 4. 変更内容を記載し、審査に提出
 
 ## リリース後の確認事項
 
 - [ ] GitHubリリースが正常に作成されている
-- [ ] Chrome版とFirefox版のzipファイルがダウンロード可能
+- [ ] zipファイルがダウンロード可能
 - [ ] Chrome Web Storeでの審査状況を確認
-- [ ] Firefox Add-onsでの審査状況を確認
 - [ ] リリースノートが適切に記載されている
 
 ## トラブルシューティング
@@ -121,7 +111,7 @@ git push origin v1.0.1
 ### GitHub Actionsワークフローが失敗した場合
 
 1. [Actions](https://github.com/ishidad2/auto-pinned-tabs/actions)タブでエラーログを確認
-2. ビルドエラーの場合は、ローカルで`npm run build`と`npm run build:firefox`を実行して確認
+2. ビルドエラーの場合は、ローカルで`npm run build`を実行して確認
 3. 修正後、タグを削除して再作成
 
 ```bash
@@ -138,14 +128,11 @@ git push origin v1.0.1
 
 ### パッケージングエラーの場合
 
-`.output/chrome-mv3`または`.output/firefox-mv2`ディレクトリが正しく生成されているか確認します。
+`.output/chrome-mv3`ディレクトリが正しく生成されているか確認します。
 
 ```bash
 npm run build
 ls -la .output/chrome-mv3
-
-npm run build:firefox
-ls -la .output/firefox-mv2
 ```
 
 ## バージョニング規則

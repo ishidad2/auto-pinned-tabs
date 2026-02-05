@@ -93,18 +93,11 @@ fi
 
 # ビルドのテスト
 echo ""
-echo "Chrome版のビルドをテスト中..."
+echo "拡張機能のビルドをテスト中..."
 if npm run build > /dev/null 2>&1; then
-    success "Chrome版のビルド成功"
+    success "ビルド成功"
 else
-    error_exit "Chrome版のビルドに失敗しました"
-fi
-
-echo "Firefox版のビルドをテスト中..."
-if npm run build:firefox > /dev/null 2>&1; then
-    success "Firefox版のビルド成功"
-else
-    error_exit "Firefox版のビルドに失敗しました"
+    error_exit "ビルドに失敗しました"
 fi
 
 # バージョンを更新

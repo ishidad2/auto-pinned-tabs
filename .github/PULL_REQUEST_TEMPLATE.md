@@ -27,8 +27,7 @@
 <!-- どのようにテストしたか記載してください -->
 
 - [ ] ローカルでTypeScriptコンパイルが通ることを確認 (`npm run compile`)
-- [ ] Chrome版でビルドが通ることを確認 (`npm run build`)
-- [ ] Firefox版でビルドが通ることを確認 (`npm run build:firefox`)
+- [ ] ビルドが通ることを確認 (`npm run build`)
 - [ ] 実際の動作を確認した
 
 ### 動作確認の詳細
