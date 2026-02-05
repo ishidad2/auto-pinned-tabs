@@ -1,0 +1,52 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build for Chrome
+        run: npm run build
+
+      - name: Build for Firefox
+        run: npm run build:firefox
+
+      - name: Package Chrome extension
+        run: |
+          cd .output/chrome-mv3
+          zip -r ../../auto-pinned-tabs-chrome-${{ github.ref_name }}.zip .
+          cd ../..
+
+      - name: Package Firefox extension
+        run: |
+          cd .output/firefox-mv3
+          zip -r ../../auto-pinned-tabs-firefox-${{ github.ref_name }}.zip .
+          cd ../..
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            auto-pinned-tabs-chrome-${{ github.ref_name }}.zip
+            auto-pinned-tabs-firefox-${{ github.ref_name }}.zip
+          generate_release_notes: true
+          draft: false
+          prerelease: false
