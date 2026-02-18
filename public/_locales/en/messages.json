@@ -1,0 +1,52 @@
+{
+  "extName": {
+    "message": "Auto Pinned Tabs"
+  },
+  "extDescription": {
+    "message": "Automatically opens bookmarked tabs as pinned tabs when Chrome starts."
+  },
+  "popupTitle": {
+    "message": "Auto Pinned Tabs Settings"
+  },
+  "popupHeading": {
+    "message": "Folder to open on startup"
+  },
+  "popupLabelSelect": {
+    "message": "Select a folder"
+  },
+  "popupPlaceholder": {
+    "message": "Please select a folder"
+  },
+  "popupSupportLink": {
+    "message": "Support this project"
+  },
+  "msgLoading": {
+    "message": "Loading..."
+  },
+  "msgSaveSuccess": {
+    "message": "Saved!"
+  },
+  "msgNoFolders": {
+    "message": "No folders found."
+  },
+  "msgBookmarkError": {
+    "message": "Failed to load bookmarks. Please reload the page."
+  },
+  "msgStorageSaveError": {
+    "message": "Failed to save settings. Please try again."
+  },
+  "msgFolderCountWarning": {
+    "message": "Warning: Many folders detected. Display may be slow."
+  },
+  "folderRoot": {
+    "message": "Root"
+  },
+  "folderUntitled": {
+    "message": "(Untitled folder: $FOLDER_ID$)",
+    "placeholders": {
+      "folder_id": {
+        "content": "$1"
+      }
+    }
+  }
+}
