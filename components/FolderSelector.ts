@@ -6,21 +6,6 @@ import {
 } from '../utils/bookmark-helpers';
 
 /**
- * UI メッセージ定数（将来のi18n対応のために構造化）
- */
-const MESSAGES = {
-  LOADING: '読み込み中...',
-  SAVE_SUCCESS: '保存しました！',
-  NO_FOLDERS: 'フォルダが見つかりませんでした。',
-  BOOKMARK_ERROR:
-    'ブックマークの読み込みに失敗しました。ページを再読み込みしてください。',
-  STORAGE_SAVE_ERROR:
-    '設定の保存に失敗しました。もう一度お試しください。',
-  FOLDER_COUNT_WARNING:
-    '注意: フォルダ数が多いため、表示に時間がかかる場合があります。',
-} as const;
-
-/**
  * FolderSelectorコンポーネントのオプション設定
  */
 export interface FolderSelectorOptions {
@@ -33,7 +18,7 @@ export interface FolderSelectorOptions {
   /** 保存処理のデバウンス時間（ミリ秒、デフォルト: 0 = デバウンスなし） */
   debounceDelay?: number;
 
-  /** 保存成功時のメッセージ（デフォルト: MESSAGES.SAVE_SUCCESS） */
+  /** 保存成功時のメッセージ（デフォルト: i18n キー 'msgSaveSuccess'） */
   successMessage?: string;
 }
 
@@ -73,7 +58,8 @@ export class FolderSelector {
       showFolderCountWarning: options?.showFolderCountWarning ?? false,
       folderCountThreshold: options?.folderCountThreshold ?? 100,
       debounceDelay: options?.debounceDelay ?? 0,
-      successMessage: options?.successMessage ?? MESSAGES.SAVE_SUCCESS,
+      successMessage: options?.successMessage ??
+        (browser.i18n.getMessage('msgSaveSuccess') || 'msgSaveSuccess'),
     };
 
     // イベントハンドラーをバインド（destroy時に削除できるように）
@@ -111,14 +97,14 @@ export class FolderSelector {
    */
   private async loadFolders(): Promise<void> {
     try {
-      this.showStatus(MESSAGES.LOADING);
+      this.showStatus(browser.i18n.getMessage('msgLoading') || 'msgLoading');
 
       // ブックマークツリーを取得
       const tree = await browser.bookmarks.getTree();
       const folders = flattenFolders(tree);
 
       if (folders.length === 0) {
-        this.showStatus(MESSAGES.NO_FOLDERS);
+        this.showStatus(browser.i18n.getMessage('msgNoFolders') || 'msgNoFolders');
         return;
       }
 
@@ -127,7 +113,7 @@ export class FolderSelector {
         this.options.showFolderCountWarning &&
         folders.length > this.options.folderCountThreshold
       ) {
-        this.showWarning(MESSAGES.FOLDER_COUNT_WARNING);
+        this.showWarning(browser.i18n.getMessage('msgFolderCountWarning') || 'msgFolderCountWarning');
       }
 
       // ドロップダウンにフォルダを追加
@@ -142,7 +128,7 @@ export class FolderSelector {
       this.showStatus(''); // ステータスをクリア
     } catch (error) {
       console.error('ブックマーク取得エラー:', error);
-      this.showStatus(MESSAGES.BOOKMARK_ERROR);
+      this.showStatus(browser.i18n.getMessage('msgBookmarkError') || 'msgBookmarkError');
     }
   }
 
@@ -205,7 +191,7 @@ export class FolderSelector {
       this.showStatus(this.options.successMessage, 2000);
     } catch (error) {
       console.error('設定保存エラー:', error);
-      this.showStatus(MESSAGES.STORAGE_SAVE_ERROR);
+      this.showStatus(browser.i18n.getMessage('msgStorageSaveError') || 'msgStorageSaveError');
     }
   }
 
